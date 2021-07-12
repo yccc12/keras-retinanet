@@ -29,8 +29,10 @@ def read_image_bgr(path):
         path: Path to the image.
     """
     # We deliberately don't use cv2.imread here, since it gives no feedback on errors while reading the image.
-    image = np.ascontiguousarray(Image.open(path).convert('RGB'))
-    return image[:, :, ::-1]
+    # image = np.ascontiguousarray(Image.open(path).convert('RGB'))
+    image = cv2.imread(path, cv2.IMREAD_UNCHANGED) # modified for uint16
+    # return image[:, :, ::-1]
+    return image
 
 
 def preprocess_image(x, mode='caffe'):
@@ -51,6 +53,7 @@ def preprocess_image(x, mode='caffe'):
 
     # covert always to float32 to keep compatibility with opencv
     x = x.astype(np.float32)
+    x /= 255.
 
     if mode == 'tf':
         x /= 127.5

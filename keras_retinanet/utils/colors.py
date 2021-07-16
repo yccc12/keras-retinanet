@@ -26,9 +26,21 @@ Generated using:
 colors = [list((matplotlib.colors.hsv_to_rgb([x, 1.0, 1.0]) * 255).astype(int)) for x in np.arange(0, 1, 1.0 / 80)]
 shuffle(colors)
 pprint(colors)
+
+Custom colors added. 
 ```
 """
 colors = [
+    [255,255,255], # white
+    [0,255,255], # yellow
+    [255,128,0], # sky blue 
+    [0,255,0], # lime
+    [255,0,255], # magenta
+    [0,0,255], # red
+    [208,224,64], # turquoise
+    [255,255,255], # white
+    [160,160,160], # gray
+    [0,0,0], # black
     [31  , 0   , 255] ,
     [0   , 159 , 255] ,
     [255 , 95  , 0]   ,
